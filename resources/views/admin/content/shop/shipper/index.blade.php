@@ -15,7 +15,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
-                    <th>Email</th>
+                    <th>Số điện thoại</th>
                     <th>Actions</th>
                 </tr>
                 </thead>

@@ -89,7 +89,7 @@ class ShopCategoryController extends Controller
 
         $item->name = $input['name'];
         $item->slug =$input['slug'] ? $this->slugify($input['slug']) :  $this->slugify($input['name']);
-        $item->images = isset($input['images']) ? $input['images']: '';
+        $item->images = isset($input['images']) ? json_encode($input['images']) : '';
         $item->intro = isset($input['intro']) ? $input['intro']: '';
         $item->desc = isset($input['desc']) ? $input['desc']: '';
         $item->homepage = isset($input['homepage']) ? (int)$input['homepage']: 0;
@@ -115,7 +115,7 @@ class ShopCategoryController extends Controller
 
         $item->name = $input['name'];
         $item->slug = $input['slug'] ? $this->slugify($input['slug']) :  $this->slugify($input['name']);
-        $item->images = isset($input['images']) ? $input['images']: '';
+        $item->images = isset($input['images']) ? json_encode($input['images']) : '';;
         $item->intro = isset($input['intro']) ? $input['intro']: '';
         $item->desc = isset($input['desc']) ? $input['desc']: '';
         $item->homepage = isset($input['homepage']) ? (int)$input['homepage']: 0;

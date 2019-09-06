@@ -57,23 +57,30 @@
                         </select>
                     </div>
                 </div>
+                <?php
+                $images = $product->images ? json_decode($product->images) : array();
+                $i = 0;
+                ?>
 
+                @foreach($images as $image )
+                    <?php $i++ ?>
                     <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Images</label>
+                        <label for="focusedinput" class="col-sm-2 control-label">Images{{ $i }}</label>
                         <div class="col-sm-8">
                         <span class="input-group-btn">
-                             <a id="lfm" data-input="thumbnail" data-preview="holder" class="lfm-btn btn btn-primary">
+                             <a id="lfm{{$i}}" data-input="thumbnail{{$i}}" data-preview="holder{{ $i}}" class="lfm-btn btn btn-primary">
                                <i class="fa fa-picture-o"></i> Choose
                              </a>
                             <a class="btn btn-warning remove-image">
                                         <i class="fa fa-remove"></i> Xóa
                             </a>
                        </span>
-                            <input id="thumbnail" class="form-control" type="text" name="images[]" value="" placeholder="Default Input">
-                            <img id="holder"  style="margin-top:15px;max-height:100px;">
+                            <input id="thumbnail{{$i}}" class="form-control" type="text" name="images[]" value="{{$image}}" placeholder="Default Input">
+                            <img id="holder{{$i}}" src="{{asset( $image) }}" style="margin-top:15px;max-height:100px;">
 
                         </div>
                     </div>
+                @endforeach
 
 
                 <div class="form-group">

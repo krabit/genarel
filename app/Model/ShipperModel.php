@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 class ShipperModel extends Authenticatable
 {
-    public $table = 'user_permission';
+    public $table = 'shippers';
     //
     use Notifiable;
 

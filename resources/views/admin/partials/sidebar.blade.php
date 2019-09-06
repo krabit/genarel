@@ -32,7 +32,6 @@
                             <li><a href="{{ url('/admin/shop/review') }}"><i class="fa fa-angle-right"></i> Đánh giá</a></li>
                             <li><a href="{{ url('/admin/shop/customer') }}"><i class="fa fa-angle-right"></i> Khách hàng</a></li>
                             <li><a href="{{ url('/admin/shop/shipper') }}"><i class="fa fa-angle-right"></i>Nhà vận chuyển</a></li>
-                            <li><a href="{{ url('/admin/shop/seller') }}"><i class="fa fa-angle-right"></i>Nhà cung cấp</a></li>
                             <li><a href="{{ url('/admin/shop/brand') }}"><i class="fa fa-angle-right"></i> Nhãn hiệu</a></li>
                             <li><a href="{{ url('/admin/shop/statistic') }}"><i class="fa fa-angle-right"></i> Thống kê</a></li>
                         </ul>
@@ -74,16 +73,6 @@
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-laptop"></i>
-                            <span>Media manager</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="{{ url('/admin/media') }}"><i class="fa fa-angle-right"></i> Media manager</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-laptop"></i>
                             <span>Global settings</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
@@ -109,16 +98,6 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="{{ url('/admin/banners') }}"><i class="fa fa-angle-right"></i> Banners</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-laptop"></i>
-                            <span>Contact</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="{{ url('/admin/contacts') }}"><i class="fa fa-angle-right"></i> Liên hệ</a></li>
                         </ul>
                     </li>
                     <li class="treeview">

@@ -4,9 +4,13 @@
 @endsection
 
 @section('content')
-
-<div class="sub-banner my-banner2">
-</div>
+    <style>
+        .cnt{
+           font-family: sans-serif;
+           font-size: 2em;
+           text-align: left;
+        }
+    </style>
 <div class="content">
     <div class="container">
         <div class="col-md-12 col-sm-12 women-dresses">
@@ -18,11 +22,13 @@
                 <div class="women-set1">
             @foreach($results as $products)
                 <?php
-                    if(($i % 3) == 0){
+                    if(($i % 9) == 0){
                  ?>
                     <div class="clearfix"></div>
                 </div>
+
                 <div class="women-set{{$i}}">
+                    <h6 class="cnt">{{'Kết quả tìm kiếm cho :' .$search}}</h6>
                 <?php
                 }
                 ?>

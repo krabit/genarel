@@ -51,6 +51,10 @@
                     </div>
 
                 </div>
+                <?php
+                $image = $banner->image ? json_decode($banner->image) : array();
+
+                ?>
 
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Image</label>

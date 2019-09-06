@@ -512,5 +512,10 @@ Route::prefix('shipper')->group(function() {
      * Route dùng để đăng xuất
      */
     Route::post('logout', 'Auth\Shipper\LoginController@logout')->name('shipper.auth.logout');
+
+    Route::get('join/{id}/add' , 'ShipperController@join');
+    Route::post('join/{id}' , 'ShipperController@add');
+    Route::get('success/{id}','ShipperController@success');
+    Route::post('success/{id}//finish','ShipperController@finish');
 });
 

@@ -28,7 +28,13 @@
                         <th scope="row">{{ $banner->id }}</th>
                         <td>{{ $banner->name }}</td>
                         <td>{{ $banner->link }}</td>
-                        <td>{{ $banner->image }}</td>
+                        <td>
+                            <?php
+                            $images = isset($banner->image) ? json_decode($banner->image) : array();
+                            ?>
+                            @if(!empty($images))
+                                    <img  src="{{asset( $images) }}" style="margin-top:15px;max-height:100px;">
+                            @endif</td>
 
                         <td>
                             <a href="{{ url('admin/banners/'.$banner->id.'/edit') }}" class="btn btn-warning">Sửa</a>

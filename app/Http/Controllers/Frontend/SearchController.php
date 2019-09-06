@@ -12,13 +12,15 @@ class SearchController extends Controller
         $data =array();
         $input = $request->all();
 
+
        if (isset($input['Search']) && (strlen($input['Search']) > 2)){
             $data['search'] = $search = $input['Search'];
         } else{
             $data['search'] = $search= '';
         }
 
-        $data['results'] = DB::table('shop_products')->where('name','like', '%'.$search.'%' )->paginate(3);
+        $data['results'] = DB::table('shop_products')->where('name','like', '%'.$search.'%' )->paginate(9);
+
 
         return view('frontend.search.search', $data);
     }

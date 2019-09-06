@@ -44,6 +44,11 @@
                     </div>
                 </div>
 
+                <?php
+                $images = $product->images ? json_decode($product->images) : array();
+                $i = 0;
+                ?>
+
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Images</label>
                     <div class="col-sm-8">

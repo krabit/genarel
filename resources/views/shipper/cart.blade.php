@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Nhận ship đơn hàng mới</h1>
+    <h1>Đơn hàng vận chuyển của tôi</h1>
 
     <style type="text/css">
         #custom-cart .banner-bottom, .team, .checkout, .additional_info, .team-bottom, .single, .mail, .special-deals, .about, .faq, .typo, .new-products, .banner-bottom1, .top-brands, .dresses, .w3l_related_products {
@@ -147,19 +147,18 @@
                         <td scope="row">{{ $order->id }}</td>
                         <td>{{ $order->customer_name }}</td>
                         <td>{{ $order->customer_phone }}</td>
-                        <?php $status = (isset($order->status) && $order->status==0) ? 'Chưa thanh toán và đang chờ vận chuyển ':'Đã thanh toán và đang chờ vận chuyển'?>
-
                         <td>{{ $order->customer_address .'-'.$order->customer_city }}</td>
                         <td>{{ $order->customer_note }}</td>
+                        <?php $status = (isset($order->status) && $order->status==2) ? 'Đang vận chuyển':''?>
                         <td>{{$status}}</td>
                         <td>VND{{ number_format($order->total_price) }}</td>
                         <td>
-                             <a href="{{url('shipper/join/'.$order->id.'/add' )}}" class="btn btn-warning">Nhận đơn </a>
-                             {{--<a href="{{url('shipper/join/'.$order->id.'/add' )}}" class="btn btn-warning">Nhận đơn </a>--}}{{--
-                            <a --}}{{--href="{{ route('shipper/success/'.$order->id.'/finish')}}"--}}{{-- class="btn btn-danger">Đã giao hàng</a>
-                                <form id="logout-form" --}}{{--action="{{ url('shipper/success/'.$order->id.'/finish')}}"--}}{{-- method="post" style="display: none;">
+
+
+                            <a href="{{ /*route('shipper/success/'.$order->id.'/finish')*/}}" class="btn btn-danger">Đã giao hàng</a>
+                                <form id="logout-form" {{--action="{{ route('shipper/success/'.$order->id.'/finish')}}"--}} method="post" style="display: none;">
                                     @csrf
-                                </form>--}}
+                                </form>
 
                         </td>
                     </tr>
@@ -167,6 +166,7 @@
                 </tbody>
             </table>
         </div>
+
     </div>
 
 

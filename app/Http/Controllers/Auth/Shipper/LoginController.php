@@ -27,7 +27,7 @@ class LoginController extends Controller
      * Phương thức này dùng để đăng nhập cho seller
      * lấy thông tin từ form có method là POST
      */
-    public function loginSeller(Request $request) {
+    public function loginShipper(Request $request) {
 
         // validate dữ liệu
         $this->validate($request, array(
@@ -39,8 +39,8 @@ class LoginController extends Controller
         if (Auth::guard('shipper')->attempt(
             ['email' => $request->email, 'password' => $request->password],  $request->remember
         )) {
-            // nếu đăng nhập thành công thì chuyển hướng về view dashboard của admin
-            return redirect()->intended(route('seller.dashboard'));
+            // nếu đăng nhập thành công thì chuyển hướng1 về view dashboard của admin
+            return redirect()->intended(route('shipper.dashboard'));
         }
 
         // nếu đăng nhập thất bại thì quay trở về form đăng nhập
@@ -52,7 +52,7 @@ class LoginController extends Controller
      * Phương thức này dùng để đăng xuất
      */
     public function logout() {
-        Auth::guard('seller')->logout();
+        Auth::guard('shipper')->logout();
 
         // chuyển hướng về trang login của seller
         return redirect()->route('shipper.auth.login');

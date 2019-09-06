@@ -17,7 +17,6 @@
                         <th>Id</th>
                         <th>Name</th>
                         <th>Slug</th>
-                        <th>Images</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -28,7 +27,6 @@
                         <th scope="row">{{ $cat->id }}</th>
                         <td>{{ $cat->name }}</td>
                         <td>{{ $cat->slug }}</td>
-                        <td>{{ $cat->images }}</td>
                         <td>
                             <a href="{{ url('admin/shop/category/'.$cat->id.'/edit') }}" class="btn btn-warning">Sửa</a>
                             <a href="{{ url('admin/shop/category/'.$cat->id.'/delete ') }}" class="btn btn-danger">Xóa</a>

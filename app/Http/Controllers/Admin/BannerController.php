@@ -77,7 +77,7 @@ class BannerController extends Controller
         $item = new BannerModel();
 
         $item->name = $input['name'];
-        $item->image = $input['image'];
+        $item->images = isset($input['image']) ? json_encode($input['image']) : '';
         $item->link = $input['link'];
         $item->location_id = isset($input['location_id']) ? $input['location_id'] :'';
         $item->intro = isset($input['intro']) ? $input['intro'] :'';
@@ -103,7 +103,7 @@ class BannerController extends Controller
 
         $item = BannerModel::find($id);
         $item->name = $input['name'];
-        $item->image = $input['image'];
+        $item->image = isset($input['image']) ? json_encode($input['image']) : '';
         $item->link = $input['link'];
         $item->location_id = isset($input['location_id']) ? $input['location_id'] :'';
         $item->intro = isset($input['intro']) ? $input['intro'] :'';

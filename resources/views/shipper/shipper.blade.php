@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Nhận ship đơn hàng mới</h1>
+    <h1>Thông tin đơn hàng</h1>
 
     <style type="text/css">
         #custom-cart .banner-bottom, .team, .checkout, .additional_info, .team-bottom, .single, .mail, .special-deals, .about, .faq, .typo, .new-products, .banner-bottom1, .top-brands, .dresses, .w3l_related_products {
@@ -127,47 +127,70 @@
         }
 
     </style>
-    <div id="custom-cart">
+    <div class="container">
+    <div id="custom-cart" class="row">
         <div class="checkout-right">
             <table class="timetable_sub">
                 <thead>
-                <tr><th scope="row">#</th>
+                <tr>
                     <th>Tên khách hàng</th>
                     <th>Số điện thoại</th>
                     <th>Địa chỉ</th>
+                    <th>Thành phố</th>
+                    <th>Nước</th>
                     <th>Chú ý </th>
                     <th>Trạng thái</th>
                     <th>Tổng tiền</th>
-                    <th>Actions</th>
+                    <th>Action</th>
+
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($orders as $order)
+
+
                     <tr>
-                        <td scope="row">{{ $order->id }}</td>
                         <td>{{ $order->customer_name }}</td>
                         <td>{{ $order->customer_phone }}</td>
-                        <?php $status = (isset($order->status) && $order->status==0) ? 'Chưa thanh toán và đang chờ vận chuyển ':'Đã thanh toán và đang chờ vận chuyển'?>
-
-                        <td>{{ $order->customer_address .'-'.$order->customer_city }}</td>
+                        <td>{{ $order->customer_address }}</td>
+                        <td>{{ $order->customer_city }}</td>
+                        <td>{{ $order->customer_country }}</td>
                         <td>{{ $order->customer_note }}</td>
+                        <?php $status = (isset($order->status) && $order->status==0) ? 'Chưa thanh toán và đang chờ vận chuyển':'Đã thanh toán và đang chờ vận chuyển'?>
                         <td>{{$status}}</td>
                         <td>VND{{ number_format($order->total_price) }}</td>
                         <td>
-                             <a href="{{url('shipper/join/'.$order->id.'/add' )}}" class="btn btn-warning">Nhận đơn </a>
-                             {{--<a href="{{url('shipper/join/'.$order->id.'/add' )}}" class="btn btn-warning">Nhận đơn </a>--}}{{--
-                            <a --}}{{--href="{{ route('shipper/success/'.$order->id.'/finish')}}"--}}{{-- class="btn btn-danger">Đã giao hàng</a>
-                                <form id="logout-form" --}}{{--action="{{ url('shipper/success/'.$order->id.'/finish')}}"--}}{{-- method="post" style="display: none;">
-                                    @csrf
-                                </form>--}}
+
 
                         </td>
                     </tr>
-                @endforeach
                 </tbody>
             </table>
         </div>
     </div>
+        <div class="user-name">
+            <?php if ( is_object(Auth::user())):?>
+            <p> {{ Auth::user()->name }} </p>
+            <span>Administrator</span>
+            <?php endif; ?>
 
+        </div>
+        <div class="form-group row" style="margin-top: 30px">
+            <form  class="form-horizontal" name="category" action="{{ url('/shipper/join/'.$order->id) }}" method="post">
+                @csrf
+                <div class="col-md-8">
+                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name"  required autofocus placeholder="Nhập tên người ship">
+
+                    @if ($errors->has('name'))
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                    @endif
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-default">Nhận đơn hàng</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
 @endsection

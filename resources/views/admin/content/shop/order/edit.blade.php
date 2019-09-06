@@ -78,9 +78,9 @@
                     <div class="col-sm-8">
                         <select name="status">
                             <?php $selected = ($order->status == 0) ? 'selected':''?>
-                                <option value="0" <?php echo $selected ?> >Chưa thanh toán</option>
+                                <option value="0" <?php echo $selected ?> >Chưa thanh toán và đang chờ vận chuyển </option>
                             <?php $selected = ($order->status == 1) ? 'selected':''?>
-                                <option value="1" <?php echo $selected ?> >Đã thanh toán </option>
+                                <option value="1" <?php echo $selected ?> >Đã thanh toán và đang chờ vận chuyển</option>
                             <?php $selected = ($order->status == 2) ? 'selected':''?>
                                 <option value="2" <?php echo $selected ?> >Đang vận chuyển</option>
                             <?php $selected = ($order->status == 3) ? 'selected':''?>
